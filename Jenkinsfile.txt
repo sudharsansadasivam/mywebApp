@@ -7,13 +7,13 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-                git credentialsId: 'github', url: 'https://github.com/sudharsansadasivam/myweb'
+                git credentialsId: 'github', url: 'https://github.com/sudharsansadasivam/mywebApp'
             }
         }
         stage("Maven Build"){
             steps{
                 sh "mvn clean package"
-                sh "mv target/*.war target/myweb.war"
+                sh "mv target/*.war target/mywebApp.war"
             }
         }
         stage("deploy-dev"){
