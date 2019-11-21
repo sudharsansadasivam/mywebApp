@@ -1,9 +1,9 @@
 pipeline{
     agent any
     
-    environment{
+    /*environment{
         PATH = "/opt/maven3/bin:$PATH"
-    }
+    }*/
     stages{
         stage("Git Checkout"){
             steps{
@@ -13,9 +13,10 @@ pipeline{
         stage("Maven Build"){
             steps{
                 sh "mvn clean package"
-                sh "mv target/*.war target/myweb.war"
+                //sh "mv target/*.war target/myweb.war"
             }
         }
+        /*
         stage("deploy-dev"){
             steps{
                 sshagent(['tomcat-new']) {
@@ -30,6 +31,6 @@ pipeline{
             }
             
             }
-        }
+        }*/
     }
 }
